@@ -1,0 +1,51 @@
+{% extends "model-page.html" %}
+{% block content %}
+
+        <!-- One -->
+            <section id="One" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <p></p>
+                        <h2>Turismo Joinville</h2>
+                    </header>
+                </div>
+            </section>
+            
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <h2>Cadastro de Usuário</h2>
+                            <form action="submit" method="POST">{% csrf_token %}
+                                <div align="center">
+                                    <label>Primeiro Nome:</label>
+                                    <input type="text" name="pnome">
+                                    <br>
+                                    <label>Último Nome:</label>
+                                    <input type="text" name="unome">
+                                    <br>
+                                    <label>Usuário:</label>
+                                    <input type="text" name="username">
+                                    <br>
+                                    <label>Password:</label>
+                                    <input type="password" name="password">
+                                    <br>
+                                    <label>E-mail:</label>
+                                    <input type="text" name="e-mail">
+                                    <br>
+                                    <button type="submit">Cadastrar</button>
+                                </div>
+                            </form>
+
+                            {% for message in messages %}
+                                <div align="center">
+                                <strong>Erro! </strong>{{ message }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+{% endblock %}

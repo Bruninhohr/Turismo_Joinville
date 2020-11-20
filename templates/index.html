@@ -1,0 +1,151 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+	{% load static %}
+	{% static "css/main.css" as css %}
+	{% static "css/font-awesome.min.css" as css1 %}
+	{% static "imagens/moinho.jpg" as moinho %}
+	{% static "imagens/mercado_municipal.jpg" as mercado %}
+	{% static "imagens/mirante.jpg" as mirante %}
+	{% static "imagens/serra_dona_francisca.jpg" as serra %}
+	{% static "imagens/rua_palmeiras.jpg" as rpalmeiras %}
+	{% static "imagens/estrada_bonita.jpg" as estradabonita %}
+	{% static "imagens/morro_finder.png" as morrofinder %}
+<!-- Banner -->
+			<section class="banner full">
+				<article>
+					<img src="{{moinho}}" alt="" />
+					<div class="inner">
+						<header>
+							<p>Rua XV de Novembro / Rodovia BR-101, Joinville, Santa Catarina 89216-203 Brasil</p>
+							<h2>Pórtico e Moinho da XV</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="{{morrofinder}}" alt="" />
+					<div class="inner">
+						<header>
+							<p>Rua Itajuba, Joinville, Santa Catarina 89223-200 Brasil</p>
+							<h2>Morro do Finder</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="{{mirante}}"  alt="" />
+					<div class="inner">
+						<header>
+							<p>Rua Pastor Guilherme Ráu, Joinville, Santa Catarina 89221-020 Brasil</p>
+							<h2>Mirante do Boa Vista</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="{{serra}}"  alt="" />
+					<div class="inner">
+						<header>
+							<p>Rodovia SC 301 Entre Joinville e Campo Alegre, Santa Catarina 89239-400 Brasil</p>
+							<h2>Serra Dona Francisca</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="{{rpalmeiras}}"  alt="" />
+					<div class="inner">
+						<header>
+							<p>R. das Palmeiras, Joinville, Santa Catarina 89201-040 Brasil</p>
+							<h2>Rua das Palmeiras</h2>
+						</header>
+					</div>
+				</article>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper style2">
+				<div class="inner">
+					<div class="grid-style">
+
+						<div>
+							<div class="box">
+								<div class="image fit">
+									<img src="{{mirante}}" width="450px" height="450px" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<p></p>
+										<h2>Mirante</h2>
+									</header>
+									<p> Localizado no alto do Morro da Boa Vista, o Mirante é um dos principais pontos turísticos de Joinville. A torre de 250 metros de altura proporciona uma vista completa da cidade, assim como da Baia da Babitonga e da vizinha São Francisco do Sul. O acesso para o Mirante é pela rua Saguaçu, no norte da cidade.</p>
+									<footer class="align-center">
+										<a href="/mirante" class="button alt">Saiba Mais</a>
+									</footer>
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<div class="box">
+								<div class="image fit">
+									<img src="{{mercado}}" width="450px" height="450px" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<p></p>
+										<h2>Mercado Público Municipal</h2>
+									</header>
+									<p> A história do Mercado Municipal de Joinville é marcada por transformações e a cultura não poderia ficar de fora em um espaço tão misto. Em 1997, um grupo de amigos se uniu para contribuir com essa efervescência do espaço, criando um cantinho para a música.</p>
+									<footer class="align-center">
+										<a href="/mercado" class="button alt">Saiba Mais</a>
+									</footer>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d457982.5161276015!2d-49.24187314511023!3d-26.262039650266875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dea3f39db1ab37%3A0xbc4b989df161e9fa!2sJoinville%20-%20SC!5e0!3m2!1spt-BR!2sbr!4v1604879100745!5m2!1spt-BR!2sbr" height="400px" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+					</header>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="wrapper style2">
+				<div class="inner">
+					<header class="align-center">
+						<p class="special">Conheça alguns pontos turísticos</p>
+						<h2>Turismo Joinville</h2>
+					</header>
+					<div class="gallery">
+						<div>
+							<div class="image fit">
+								<a href="/moinho"><img src="{{moinho}}" width="450px" height="450px" alt="" /></a>
+							</div>
+						</div>
+						<div>
+							<div class="image fit">
+								<a href="/serra"><img src="{{serra}}" width="450px" height="450px" alt="" /></a>
+							</div>
+						</div>
+						<div>
+							<div class="image fit">
+								<a href="/rpalmeiras"><img src="{{rpalmeiras}}" width="450px" height="450px" alt="" /></a>
+							</div>
+						</div>
+						<div>
+							<div class="image fit">
+								<a href="/estradabonita"><img src="{{estradabonita}}" width="450px" height="450px" alt="" /></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+{% endblock %}
+

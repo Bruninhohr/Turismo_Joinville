@@ -1,0 +1,118 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+{% load static %}
+{% static "imagens/estrada_bonita.jpg" as estradabonita %}
+{% static "imagens/estrada_bonita2.png" as estradabonita2 %}
+
+        <!-- One -->
+            <section id="One" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <p></p>
+                        <h2>Estrada Bonita</h2>
+                    </header>
+                </div>
+            </section>
+
+        <!-- Three -->
+            <section id="three" class="wrapper style2">
+                <div class="inner">
+                    <header class="align-center">
+                        <p class="special"></p>
+                        <h2>Fotos</h2>
+                    </header>
+                    <div class="gallery">
+                        <div>
+                            <div class="image fit">
+                                <a href="/estradabonita"><img src="{{estradabonita}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/estradabonita"><img src="{{estradabonita2}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Two -->
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <p></p>
+                                <h2>História</h2>
+                            </header>
+                            <p>Estrada de aproximadamente 5km com muita natureza, paisagens rurais, algumas construções em estilo germânico, poucos restaurantes e poucas lojinhas ao longo da estrada. Onde podemos visitar o famoso museu de antiguidades.</p>
+
+                            <p>A Estrada Bonita em Joinville foi fundada em 1885 por imigrantes pioneiros que trabalharam na construção da estrada de ferro de Paranaguá. Entre as primeira famílias a se instalarem no local, estavam os Kersten e os Witt.</p>
+
+                            <p>A participação delas foi fundamental no processo de colonização que se caracterizou também pela instalação de linhas de telégrafo, um poderoso meio de comunicação naquela época.</p>
+
+                            <p> * Áreas históricas para caminhadas</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                    <!-- Two -->
+            <section id="two" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.1099263706096!2d-48.92500608547165!3d-26.127958567222237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dc1da0cbf42d1d%3A0x2fef1703117f27ab!2sEstr.%20Bonita%20-%20Pirabeiraba%2C%20Joinville%20-%20SC!5e0!3m2!1sen!2sbr!4v1605039883360!5m2!1sen!2sbr" height="400px" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </header>
+                </div>
+            </section>
+
+        <!-- Two -->
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <p></p>
+                                <h2>Comentários</h2>
+                            </header>
+                                <ul>
+                                    {% for avaliacao in avaliacao %}
+                                        <li>{{ avaliacao.avaliacao }}</li>
+                                    {% endfor %}
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% if user.is_authenticated %}
+                
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header >
+                                <h2 class="align-center">Deixe sua opinião!</h2><br />
+                                <form action="submit" method="POST">{% csrf_token %}
+                                    <div>
+                                        <label class="required" for="message">Qual o seu comentário sobre esse ponto turístico?</label>
+                                        <input type="hidden" name="local" value="estradabonita">
+                                        <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
+                                    </div>
+                                    <div class="align-center" >
+                                        <button type="submit">Enviar</button>
+                                    </div>
+                                        
+                                </form>
+                            </header>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% endif %}
+
+{% endblock %}

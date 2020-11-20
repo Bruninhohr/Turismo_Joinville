@@ -1,0 +1,116 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+{% load static %}
+{% static "imagens/parque_mar.jpg" as parquemar %}
+{% static "imagens/parque_mar2.png" as parquemar2 %}
+
+        <!-- One -->
+            <section id="One" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <p></p>
+                        <h2>Parque Porta do Mar</h2>
+                    </header>
+                </div>
+            </section>
+
+        <!-- Three -->
+            <section id="three" class="wrapper style2">
+                <div class="inner">
+                    <header class="align-center">
+                        <p class="special"></p>
+                        <h2>Fotos</h2>
+                    </header>
+                    <div class="gallery">
+                        <div>
+                            <div class="image fit">
+                                <a href="/parquemar"><img src="{{parquemar}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/parquemar"><img src="{{parquemar2}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Two -->
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <p></p>
+                                <h2>História</h2>
+                            </header>
+                            <p>Como não existiam estradas na região, o transporte até Joinville acontecia pela Baía da Babitonga, por meio dos barcos. Ele lutou pela construção da igreja e a fundação de uma escola na comunidade.</p>
+
+                            <p></p>
+
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                    <!-- Two -->
+            <section id="two" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.099622194401!2d-48.77410618546691!3d-26.290870273886338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94deb24bf22dfadf%3A0xbabb96c6d0356213!2sParque%20Porta%20do%20Mar!5e0!3m2!1sen!2sbr!4v1605035805142!5m2!1sen!2sbr" height="400px" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </header>
+                </div>
+            </section>
+
+        <!-- Two -->
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <p></p>
+                                <h2>Comentários</h2>
+                            </header>
+                                <ul>
+                                    {% for avaliacao in avaliacao %}
+                                        <li>{{ avaliacao.avaliacao }}</li>
+                                    {% endfor %}
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% if user.is_authenticated %}
+                
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header >
+                                <h2 class="align-center">Deixe sua opinião!</h2><br />
+                                <form action="submit" method="POST">{% csrf_token %}
+                                    <div>
+                                        <label class="required" for="message">Qual o seu comentário sobre esse ponto turístico?</label>
+                                        <input type="hidden" name="local" value="parque_mar">
+                                        <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
+                                    </div>
+                                    <div class="align-center" >
+                                        <button type="submit">Enviar</button>
+                                    </div>
+                                        
+                                </form>
+                            </header>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% endif %}
+
+{% endblock %}

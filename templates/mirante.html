@@ -1,0 +1,118 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+{% load static %}
+{% static "imagens/mirante.jpg" as mirante %}
+{% static "imagens/mirante2.png" as mirante2 %}
+
+        <!-- One -->
+            <section id="One" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <p></p>
+                        <h2>Mirante do Boa Vista</h2>
+                    </header>
+                </div>
+            </section>
+
+        <!-- Three -->
+            <section id="three" class="wrapper style2">
+                <div class="inner">
+                    <header class="align-center">
+                        <p class="special"></p>
+                        <h2>Fotos</h2>
+                    </header>
+                    <div class="gallery">
+                        <div>
+                            <div class="image fit">
+                                <a href="/mirante"><img src="{{mirante}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/mirante"><img src="{{mirante2}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Two -->
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <p></p>
+                                <h2>História</h2>
+                            </header>
+                            <p>O Mirante de Joinville é um atrativo bem procurado nos finais de semana. De lá você tem uma vista de 360 graus da cidade, a 250m de altura. Localizado no Morro da Boa vista, é uma estrutura de quase 15m, que comporta até 40 pessoas por vez.</p>
+
+                            <p>A subida até o topo do Mirante é feita por escadarias e também por um elevador, que permite o acesso de cadeirantes e daqueles com alguma dificuldade de mobilidade. Na base do mirante há banheiros, um centro de atendimento ao turista, guarita de segurança e uma lanchonete.</p>
+
+                            <p>O Morro ainda oferece outro ponto de contemplação, de menor porte, que ganhou o nome de Janela do Mirante, uma homenagem à bela visão que se tem da região central da cidade e de onde se pode acessar a trilha que circunda a área, repleta de Mata Atlântica.</p>
+
+                            <p>O Mirante tem serviço de áudio descritivo para pessoas com deficiência visual.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                    <!-- Two -->
+            <section id="two" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.0561070685635!2d-48.829135485467006!3d-26.29228107394423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94deb1c7b23c994f%3A0x358bc5652d07d158!2sMirante%20Morro%20do%20Boa%20Vista!5e0!3m2!1sen!2sbr!4v1605039627115!5m2!1sen!2sbr" height="400px" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </header>
+                </div>
+            </section>
+
+        <!-- Two -->
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <p></p>
+                                <h2>Comentários</h2>
+                            </header>
+                                <ul>
+                                    {% for avaliacao in avaliacao %}
+                                        <li>{{ avaliacao.avaliacao }}</li>
+                                    {% endfor %}
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% if user.is_authenticated %}
+                
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header >
+                                <h2 class="align-center">Deixe sua opinião!</h2><br />
+                                <form action="submit" method="POST">{% csrf_token %}
+                                    <div>
+                                        <label class="required" for="message">Qual o seu comentário sobre esse ponto turístico?</label>
+                                        <input type="hidden" name="local" value="mirante">
+                                        <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
+                                    </div>
+                                    <div class="align-center" >
+                                        <button type="submit">Enviar</button>
+                                    </div>
+                                        
+                                </form>
+                            </header>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% endif %}
+
+{% endblock %}

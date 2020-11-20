@@ -1,0 +1,114 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+{% load static %}
+{% static "imagens/mercado_municipal.jpg" as mercado %}
+{% static "imagens/mercado_municipal2.png" as mercado2 %}
+
+        <!-- One -->
+            <section id="One" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <p></p>
+                        <h2>Mercado Municipal</h2>
+                    </header>
+                </div>
+            </section>
+
+        <!-- Three -->
+            <section id="three" class="wrapper style2">
+                <div class="inner">
+                    <header class="align-center">
+                        <p class="special"></p>
+                        <h2>Fotos</h2>
+                    </header>
+                    <div class="gallery">
+                        <div>
+                            <div class="image fit">
+                                <a href="/mercado"><img src="{{mercado}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/mercado"><img src="{{mercado2}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Two -->
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <p></p>
+                                <h2>História</h2>
+                            </header>
+                            <p>A construção de um local específico para a comercialização dos produtos agrícolas e do pescado já era uma demanda antiga em Joinville no início do século 20. Desde os primeiros tempos da Colônia Dona Francisca se falava na construção de um mercado público para atender a este fim. Mas onde? Embora hoje a proximidade com o rio Cachoeira pareça uma escolha natural, na época a questão foi alvo de muita polêmica. A definição só ocorreria em 1906, quando ficou estabelecido que ele seria erguido junto ao novo cais municipal, às margens do Cachoeira. Com isso, naquele mesmo ano surgia o Mercado Público de Joinville. A entrega oficial da obra, porém, ficou para 1907 e a regulamentação das atividades ainda demorou mais alguns anos. Hoje, passados 110 anos, a construção original não mais existe. Em seu lugar surgiu um novo prédio na década de 50 e o atual, nos anos 1980, praticamente no mesmo local.</p>
+
+                            <p>A história do Mercado Municipal de Joinville é marcada por transformações e a cultura não poderia ficar de fora em um espaço tão misto. Em 1997, um grupo de amigos se uniu para contribuir com essa efervescência do espaço, criando um cantinho para a música.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                    <!-- Two -->
+            <section id="two" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.654594106718!2d-48.84248868546658!3d-26.305295174478225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94deb04cd0bbb533%3A0xf77c40d1c8295ecf!2sPublic%20Market%20of%20Joinville!5e0!3m2!1sen!2sbr!4v1605039742588!5m2!1sen!2sbr" height="400px" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </header>
+                </div>
+            </section>
+
+        <!-- Two -->
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <p></p>
+                                <h2>Comentários</h2>
+                            </header>
+                                <ul>
+                                    {% for avaliacao in avaliacao %}
+                                        <li>{{ avaliacao.avaliacao }}</li>
+                                    {% endfor %}
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% if user.is_authenticated %}
+                
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header >
+                                <h2 class="align-center">Deixe sua opinião!</h2><br />
+                                <form action="submit" method="POST">{% csrf_token %}
+                                    <div>
+                                        <label class="required" for="message">Qual o seu comentário sobre esse ponto turístico?</label>
+                                        <input type="hidden" name="local" value="mercado">
+                                        <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
+                                    </div>
+                                    <div class="align-center" >
+                                        <button type="submit">Enviar</button>
+                                    </div>
+                                        
+                                </form>
+                            </header>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% endif %}
+
+{% endblock %}

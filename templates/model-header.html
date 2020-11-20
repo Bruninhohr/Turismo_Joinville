@@ -1,0 +1,25 @@
+{% load static %}
+{% static "imagens/moinho-de-vento.png" as logo %}
+
+			<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="/"><img height="45px" src="{{logo}}"></a></div>
+				<a href="#menu">Menu</a>
+			</header>
+						<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">Sobre Nós</a></li>
+					<li><a href="/photos">Fotos</a></li>
+					<li><a href="/eventos">Eventos</a></li>
+					<li><a href="/team">Time</a></li>
+					<li><a href="/contact">Contato</a></li>
+					<li><a href="/cadastro">Cadastro</a></li>
+					{% if user.is_authenticated %}
+						<li><a href="/logout">{{user.username}} - Logout</a></li>
+					{% else %}
+						<li><a href="/login">Login</a></li>
+					{% endif %}
+				</ul>
+			</nav>

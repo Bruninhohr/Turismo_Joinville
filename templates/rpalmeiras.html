@@ -1,0 +1,118 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+{% load static %}
+{% static "imagens/rua_palmeiras.jpg" as rpalmeiras %}
+{% static "imagens/rua_palmeiras3.png" as rpalmeiras2 %}
+
+        <!-- One -->
+            <section id="One" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <p></p>
+                        <h2>Rua das Palmeiras</h2>
+                    </header>
+                </div>
+            </section>
+
+        <!-- Three -->
+            <section id="three" class="wrapper style2">
+                <div class="inner">
+                    <header class="align-center">
+                        <p class="special"></p>
+                        <h2>Fotos</h2>
+                    </header>
+                    <div class="gallery">
+                        <div>
+                            <div class="image fit">
+                                <a href="/rpalmeiras"><img src="{{rpalmeiras}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/rpalmeiras"><img src="{{rpalmeiras2}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Two -->
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <p></p>
+                                <h2>História</h2>
+                            </header>
+                            <p>O nome oficial é Alameda Brüstlein, mas para os joinvilenses o local sempre vai ser a Rua das Palmeiras. Desde 1876, quando as primeiras palmeiras foram trazidas do Rio de Janeiro, a via se tornou um grande cartão postal da cidade.</p>
+
+                            <p>A alameda foi pavimentada com paralelepípedos em 1910 e veículos de carga e passeio passavam continuamente por ela.</p>
+
+                            <p>Enquanto as palmeiras iam crescendo naturalmente, mudanças bruscas na Rua das Palmeiras aconteciam. A principal intervenção ocorreu em 1973, quando houve o fechamento para o trânsito de veículos e a colocação de gramado.</p>
+
+                            <p>Quase 40 anos depois, a alameda recuperou seu desenho original, reabrindo para a circulação de pedestres e ligando a Rua do Príncipe ao Museu Nacional da Imigração e Colonização, na rua Rio Branco.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                    <!-- Two -->
+            <section id="two" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.71150286345!2d-48.84712418546655!3d-26.303450974402452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94deb04bdfb83297%3A0xec8113f60df93055!2sR.%20das%20Palmeiras%20-%20Centro%2C%20Joinville%20-%20SC%2C%2089201-040!5e0!3m2!1sen!2sbr!4v1605035989609!5m2!1sen!2sbr" height="400px" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </header>
+                </div>
+            </section>
+
+        <!-- Two -->
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <p></p>
+                                <h2>Comentários</h2>
+                            </header>
+                                <ul>
+                                    {% for avaliacao in avaliacao %}
+                                        <li>{{ avaliacao.avaliacao }}</li>
+                                    {% endfor %}
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% if user.is_authenticated %}
+                
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header >
+                                <h2 class="align-center">Deixe sua opinião!</h2><br />
+                                <form action="submit" method="POST">{% csrf_token %}
+                                    <div>
+                                        <label class="required" for="message">Qual o seu comentário sobre esse ponto turístico?</label>
+                                        <input type="hidden" name="local" value="rpalmeiras">
+                                        <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
+                                    </div>
+                                    <div class="align-center" >
+                                        <button type="submit">Enviar</button>
+                                    </div>
+                                        
+                                </form>
+                            </header>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% endif %}
+
+{% endblock %}

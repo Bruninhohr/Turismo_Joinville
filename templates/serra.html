@@ -1,0 +1,122 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+{% load static %}
+{% static "imagens/serra_dona_francisca.jpg" as serra %}
+{% static "imagens/serra_dona_francisca2.png" as serra2 %}
+
+        <!-- One -->
+            <section id="One" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <p></p>
+                        <h2>Serra da Dona Francisca</h2>
+                    </header>
+                </div>
+            </section>
+
+        <!-- Three -->
+            <section id="three" class="wrapper style2">
+                <div class="inner">
+                    <header class="align-center">
+                        <p class="special"></p>
+                        <h2>Fotos</h2>
+                    </header>
+                    <div class="gallery">
+                        <div>
+                            <div class="image fit">
+                                <a href="/serra"><img src="{{serra}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/serra"><img src="{{serra2}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Two -->
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <p></p>
+                                <h2>História</h2>
+                            </header>
+                            <p>O traçado original da estrada foi aberto em 1858, construída pelos imigrantes para ligar as cidades do interior a Joinville e litoral catarinense. O objetivo da estrada foi escoar o comércio de produtos, principalmente a erva-mate, que estava em franco progresso, na época.</p>
+
+                            <p>O nome se deve ao fato de que na época havia no local a Colônia Dona Francisca, onde a princesa Francisca Carolina, irmã de Dom Pedro II, tinha terras.</p>
+
+                            <p>Hoje a estrada mantém seu traçado original somente na parte da serra e liga Joinville com São Bento do Sul, Rio Negrinho e Mafra.</p>
+                            
+                            <p>A estrada da serra Dona Francisca é uma rodovia cênica. É parte da SC-301, que liga a região de Joinville a São Bento do Sul e Mafra, no planalto serrano de Santa Catarina, quase na divisa com o Paraná.</p>
+
+                            <p>A Estrada Dona Francisca oferece belas paisagens e um curto trecho de curvas sinuosas. Apesar de estar próxima à grande Joinville e a movimentada BR-101, a estrada leva o visitante para cenários bucólicos com casas enxaimel e alambiques de cachaça artesanal.</p>
+
+                            <p>A Serra Dona Francisca tem um trecho em meio a Mata Atlântica preservada, onde estão as curvas mais fechadas e onde está o maior desnível. São 8 curvas de 180 graus, num trecho de 4 km. O trecho total de serra é de aproximadamente 20 km e a distância entre a BR-101, próximo a Joinville e Campo Alegre, cidade já em cima da serra é de 45 km.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                    <!-- Two -->
+            <section id="two" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.0808018224543!2d-49.03567888546972!3d-26.19404966992105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dea006633631e1%3A0x298d60ad84c9751b!2sSerra%20Dona%20Francisca!5e0!3m2!1sen!2sbr!4v1605039323459!5m2!1sen!2sbr" height="400px" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </header>
+                </div>
+            </section>
+
+        <!-- Two -->
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <p></p>
+                                <h2>Comentários</h2>
+                            </header>
+                                <ul>
+                                    {% for avaliacao in avaliacao %}
+                                        <li>{{ avaliacao.avaliacao }}</li>
+                                    {% endfor %}
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% if user.is_authenticated %}
+                
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header >
+                                <h2 class="align-center">Deixe sua opinião!</h2><br />
+                                <form action="submit" method="POST">{% csrf_token %}
+                                    <div>
+                                        <label class="required" for="message">Qual o seu comentário sobre esse ponto turístico?</label>
+                                        <input type="hidden" name="local" value="serra">
+                                        <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
+                                    </div>
+                                    <div class="align-center" >
+                                        <button type="submit">Enviar</button>
+                                    </div>
+                                        
+                                </form>
+                            </header>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% endif %}
+
+{% endblock %}

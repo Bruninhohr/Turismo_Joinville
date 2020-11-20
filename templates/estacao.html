@@ -1,0 +1,122 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+{% load static %}
+{% static "imagens/estacao.png" as estacao %}
+{% static "imagens/estacao2.png" as estacao2 %}
+
+        <!-- One -->
+            <section id="One" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <p></p>
+                        <h2>Estação da Memória de Joinville</h2>
+                    </header>
+                </div>
+            </section>
+
+        <!-- Three -->
+            <section id="three" class="wrapper style2">
+                <div class="inner">
+                    <header class="align-center">
+                        <p class="special"></p>
+                        <h2>Fotos</h2>
+                    </header>
+                    <div class="gallery">
+                        <div>
+                            <div class="image fit">
+                                <a href="/estacao"><img src="{{estacao}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/estacao"><img src="{{estacao2}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Two -->
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <p></p>
+                                <h2>História</h2>
+                            </header>
+                            <p>1906 - É inaugurada a Estação Ferroviária de Joinville, servindo como elo de ligação e transporte entre Joinville e São Francisco do Sul</p>
+                            <p>1910 - Colocação de trilhos na Rua do Príncipe, para passagem do bonde puxado a burros</p>
+                            <p>1911 - A empresa Ferro-carril Joinvilenses começa a transportar passageiros entre a Estação Ferroviária e o Centro da cidade, nos bondes puxados a burro, guiados sobre trilhos</p>
+                            <p>1917 - A linha férrea é ampliada até Porto União da Vitória, contemplando também Corupá (desde 1910) e Três Barras (1913)
+                            <p>Década de 1970 - As locomotivas passam a ser abastecidas a diesel, ganhando maior agilidade e eficiência</p>
+                            <p>1985 - O trem misto parou de circular e foi substituído pelo uso de litorinas. Depois disso, somente alguns trens a vapor turísticos percorrem a linha, em especial, na região de Rio Negrinho</p>
+                            <p>1991 - A última litorina diária passa pelo trecho entre Corupá e São Francisco do Sul</p>
+                            <p>1996 - As privatizações das ferrovias permitiram a concessão da linha para o transporte de cargas. No mesmo ano o prédio que abrigava a Estação de Joinville é tombado pelo Governo de Santa Catarina</p>
+                            <p>2000 - O imóvel da Rua Leite Ribeiro é adquirido pelo Município de Joinville</p>
+                            <p>2008 - A Estação Ferroviária de Joinville é tombada como Patrimônio Nacional e é reaberta como “Estação da Memória”.</p>
+                            <p>2018 - O trecho de linha férrea entre Mafra e São Francisco do Sul continua operando a movimentação de cargueiros, rumo ao Porto. Já a “Maria Fumaça” sediada em Rio Negrinho é usada para o turismo. A locomotiva a vapor, construída em 1950 no Estados Unidos, foi reformada e possui 10 vagões com capacidade para 400 passageiros.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                    <!-- Two -->
+            <section id="two" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.144934878208!2d-48.84877998546602!3d-26.321805975156096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94deb0f8efea5b4b%3A0xd68e9b053df7a8a2!2sMemory%20Station!5e0!3m2!1sen!2sbr!4v1605295621323!5m2!1sen!2sbr" height="400px" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </header>
+                </div>
+            </section>
+
+        <!-- Two -->
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header class="align-center">
+                                <p></p>
+                                <h2>Comentários</h2>
+                            </header>
+                                <ul>
+                                    {% for avaliacao in avaliacao %}
+                                        <li>{{ avaliacao.avaliacao }}</li>
+                                    {% endfor %}
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% if user.is_authenticated %}
+                
+            <section id="two" class="wrapper style2">
+                <div class="inner">
+                    <div class="box">
+                        <div class="content">
+                            <header >
+                                <h2 class="align-center">Deixe sua opinião!</h2><br />
+                                <form action="submit" method="POST">{% csrf_token %}
+                                    <div>
+                                        <label class="required" for="message">Qual o seu comentário sobre esse ponto turístico?</label>
+                                        <input type="hidden" name="local" value="estacao">
+                                        <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
+                                    </div>
+                                    <div class="align-center" >
+                                        <button type="submit">Enviar</button>
+                                    </div>
+                                        
+                                </form>
+                            </header>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% endif %}
+
+{% endblock %}

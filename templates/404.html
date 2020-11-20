@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./css/main.css"> <!-- Link/Caminho para o arquivo CSS -->
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<title>Primeiro Projeto</title>
+</head>
+<body>
+	<header class="menu-principal">
+		<main>
+			<div class="header1">
+				<div class="logo">
+					<img width="140" src="./imagens/logo-turismo.png"/>
+				</div>
+				<div class="redes-sociais">
+					<ul>
+						<li>
+							<a href="">
+								<img width="30" src="./imagens/instagram.png"/>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img width="30" src="./imagens/whatsapp.png"/>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img width="30" src="./imagens/linkedin.png"/>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img width="30" src="./imagens/twitter.png"/>
+							</a>
+						</li>
+					</ul>
+				</div>	
+			</div>
+		</main>
+	</header>
+	<main class="fullscreen menu">
+		<div class="header2">
+			<div class="menu1">
+				<ul>
+					<li>
+						<a href="">
+							Home
+						</a>
+					</li>
+					<li>
+						<a href="">
+							About Us
+						</a>
+					</li>
+					<li>
+						<a href="">
+							Photos
+						</a>
+					</li>
+					<li>
+						<a href="">
+							Parceiros
+						</a>
+					</li>
+					<li>
+						<a href="">
+							Team
+						</a>
+					</li>
+					<li>
+						<a href="">
+							Contact
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="search">
+				<input placeholder="Search Someting" type="text"/>
+			</div>
+		</div>
+	</main>
+	<div class="fullscreen">
+		<div class="slider">
+	  			<img height="350" src="./imagens/entrada-joinville.png"/>
+	  			<img height="350" src="./imagens/joinville.jpg"/>
+	  			<img height="350" src="./imagens/joinville2.jpg"/>
+	  			<img height="350" src="./imagens/joinville3.png"/>
+	  	</div>
+	</div>
+	<script type="text/javascript" src="./Slick/slick-1.8.1/slick/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="./Slick/slick-1.8.1/slick/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="./Slick/slick-1.8.1/slick/slick.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<div>
+		<h1>{{ question.question_text }}</h1>
+		<ul>
+			{% for choice in question.choice_set.all %}
+    	<li>{{ choice.choice_text }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+</body>
+</html>

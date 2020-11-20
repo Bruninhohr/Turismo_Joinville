@@ -1,0 +1,99 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+    {% load static %}
+    {% static "imagens/castelo_bugres.jpg" as castelobugres %}
+    {% static "imagens/estrada_bonita.jpg" as estradabonita %}
+    {% static "imagens/mercado_municipal.jpg" as mercado %}
+    {% static "imagens/mirante.jpg" as mirante %}
+    {% static "imagens/moinho.jpg" as moinho %}
+    {% static "imagens/morro_finder.png" as morrofinder %}
+    {% static "imagens/serra_dona_francisca.jpg" as serra %}
+    {% static "imagens/rua_palmeiras.jpg" as rpalmeiras %}
+    {% static "imagens/parque_mar.jpg" as parquemar %}
+    {% static "imagens/zoobotanico.png" as zoobotanico %}
+    {% static "imagens/estacao.png" as estacao %}
+
+        <!-- One -->
+            <section id="One" class="wrapper style3">
+                <div class="inner">
+                    <header class="align-center">
+                        <p></p>
+                        <h2>Turismo Joinville</h2>
+                    </header>
+                </div>
+            </section>
+
+
+        <!-- Three -->
+            <section id="three" class="wrapper style2">
+                <div class="inner">
+                    <header class="align-center">
+                        <p class="special">Conheça alguns pontos turísticos</p>
+                        <h2>Turismo Joinville</h2>
+                    </header>
+                    <div class="gallery">
+                        <div>
+                            <div class="image fit">
+                                <a href="/mirante"><img src="{{mirante}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/moinho"><img src="{{moinho}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/serra"><img src="{{serra}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/castelobugres"><img src="{{castelobugres}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/rpalmeiras"><img src="{{rpalmeiras}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/mercado"><img src="{{mercado}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/estradabonita"><img src="{{estradabonita}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/morrofinder"><img src="{{morrofinder}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/parquemar"><img src="{{parquemar}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/zoobotanico"><img src="{{zoobotanico}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="/estacao"><img src="{{estacao}}" width="450px" height="450px" alt="" /></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+
+{% endblock %}

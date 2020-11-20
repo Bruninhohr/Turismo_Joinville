@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	{% load static %}
+	{% static "css/main.css" as css %}
+	{% static "css/font-awesome.min.css" as css1 %}
+	{% static "imagens/moinho16.png" as logo1 %}
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" type="text/css"/>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{css}}" type="text/css"/>
+    <link rel="stylesheet" href="{{css1}}" type="text/css"/>
+    <link rel="shortcut icon" href="{{logo1}}" type="image/x-icon"/>
+	<title>Turismo Joinville</title>
+</head>
+<body>
+	{% include "model-header.html" %}
+    {% block content %} {% endblock %}
+    {% include "model-footer.html" %}
+
+    {% static "js/jquery.min.js" as js1 %}
+    {% static "js/jquery.scrollex.min.js" as js2 %}
+    {% static "js/skel.min.js" as js3 %}
+    {% static "js/util.js" as js4 %}
+    {% static "js/main.js" as js5 %}
+
+   	<script src="{{js1}}"></script>
+	<script src="{{js2}}"></script>
+	<script src="{{js3}}"></script>
+	<script src="{{js4}}"></script>
+	<script src="{{js5}}"></script>
+</body>
+</html>
